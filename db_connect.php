@@ -15,6 +15,18 @@ class Dtabese{
 
     }
 
+      public static  ?Dtabese $instce = null;
+    
+    
+    public static function getInstnce(){
+       if(self::$instce === null){
+          self::$instce = new Dtabese("localhost","ApexMercatoe","root","");
+
+       }
+       return self::$instce ;
+    }
+
+
     public function getConnexion(){
         try {
             $pdo = new PDO("mysql:host={$this->host};dbname={$this->database}", $this->username, $this->password);
