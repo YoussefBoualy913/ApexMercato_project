@@ -21,9 +21,6 @@ class Dtabese{
 
     }
 
-     
-    
-    
     public static function getInstnce(){
        if(self::$instce === null){
           self::$instce = new Dtabese();
@@ -34,7 +31,7 @@ class Dtabese{
 
 
     public function getConnexion(){
-       return $this->pdo;
+       return $this->pdo ;
 
    }
 

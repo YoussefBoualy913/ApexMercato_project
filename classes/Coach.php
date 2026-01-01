@@ -2,7 +2,10 @@
  require('Person.php');
  class Coach extends Person{
 
-    private int $salaire ;
+     private int $salaire ;
+    private string $Pseudo ;
+    private string $Rôle ;
+    private int  $Valeur_Marchande ;
    
 
     public function __construct($Nom,$Email,$Nationalité,$salaire)
@@ -13,7 +16,7 @@
     }
 
     public function getAnnualCost(){
-        return $this ->salaire*12;
+       
     }
 
     public function getSalaire(){
