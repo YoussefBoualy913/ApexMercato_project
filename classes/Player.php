@@ -40,7 +40,7 @@
        return  $this ->Equipe_id;
     }
 
-    public function setEquipe_Equipe_id($Equipe_id){
+    public function setEquipe_id($Equipe_id){
         $this ->Equipe_id = $Equipe_id;
     }
 

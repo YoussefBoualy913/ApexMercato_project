@@ -12,8 +12,8 @@ class Dtabese{
     private function __construct(){
     
      try {
-            $pdo = new PDO("mysql:host={$this->host};dbname={$this->database}", $this->username, $this->password);
-            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $this->pdo = new PDO("mysql:host={$this->host};dbname={$this->database}", $this->username, $this->password);
+            $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         
         } catch (PDOException $e) {
             die("Erreur de connexion : " . $e->getMessage());

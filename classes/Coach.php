@@ -9,14 +9,8 @@
     private string $Style_de_coaching ;
     
 
-   
-
-    public function __construct($Nom,$Email,$Nationalité,$salaire,$Années_dexpérience,$Style_de_coaching)
+    public function __construct()
     {
-       parent::__construct($Nom,$Email,$Nationalité);
-        $this ->salaire = $salaire;
-        $this ->Années_dexpérience = $Années_dexpérience;
-        $this ->Style_de_coaching = $Style_de_coaching;
        
     }
 

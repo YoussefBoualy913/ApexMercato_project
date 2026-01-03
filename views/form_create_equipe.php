@@ -8,36 +8,27 @@ require_once ('../header.php');
         </div>
 
         <div class="form-container fade-in">
-            <form id="teamForm">
+            <form id="teamForm" action="../actions/add_equipe.php" method="POST">
                 <div class="form-grid">
                     <div class="form-group">
                         <label for="teamName">Nom de l'équipe *</label>
-                        <input type="text" id="teamName" placeholder="Ex: Karmine Corp" required>
+                        <input type="text" id="teamName" name="Nom" placeholder="Ex: Karmine Corp" >
                     </div>
 
                     <div class="form-group">
                         <label for="teamBudget">Budget (€) *</label>
-                        <input type="number" id="teamBudget" placeholder="Ex: 5000000" required>
+                        <input type="number" id="teamBudget" name="Budget" placeholder="Ex: 5000000" >
                     </div>
 
                     <div class="form-group">
                         <label for="teamManager">Manager *</label>
-                        <input type="text" id="teamManager" placeholder="Ex: Kameto" required>
+                        <input type="text" id="teamManager" name="Manager" placeholder="Ex: Kameto" >
                     </div>
 
-                    <div class="form-group">
-                        <label for="teamRegion">Région *</label>
-                        <select id="teamRegion" required>
-                            <option value="">Sélectionner...</option>
-                            <option value="EU">Europe</option>
-                            <option value="NA">Amérique du Nord</option>
-                            <option value="KR">Corée</option>
-                            <option value="CN">Chine</option>
-                        </select>
-                    </div>
+                   
                 </div>
 
-                <button type="submit" class="btn btn-primary mt-2">✅ Créer l'Équipe</button>
+                <button type="submit" name="submit" class="btn btn-primary mt-2">✅ Créer l'Équipe</button>
             </form>
         </div>
                       
