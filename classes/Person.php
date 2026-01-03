@@ -5,11 +5,9 @@ abstract class Person{
     protected string $Email;
     protected string $Nationalité;
 
-    public function __construct($Nom,$Email,$Nationalité)
+    public function __construct()
     {
-        $this ->$Nom = $Nom;
-        $this ->$Email = $Email;
-        $this ->$Nationalité = $Nationalité;
+      
       
     }
 

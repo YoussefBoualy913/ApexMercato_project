@@ -1,12 +1,7 @@
 
 CREATE DATABASE ApexMercatoe
 
-CREATE TABLE Personnes(
-Personnes_id INT PRIMARY KEY AUTO_INCREMENT,   
-Nom VARCHAR(20) NOT NULL,
-Email VARCHAR(50) NOT NULL,
-Nationalité VARCHAR(20) NOT NULL
-);
+
 
 CREATE TABLE Equipe (
 Equipe_id INT PRIMARY KEY AUTO_INCREMENT, 
@@ -17,23 +12,25 @@ Manager VARCHAR(40) NOT NULL
 
 CREATE TABLE Joueur(
 Joueur_id INT PRIMARY KEY AUTO_INCREMENT,
-Personnes_id INT  NOT NULL,
 Equipe_id INT  NOT NULL,
+Nom VARCHAR(20) NOT NULL,
+Email VARCHAR(50) NOT NULL,
+Nationalité VARCHAR(20) NOT NULL,
 Pseudo VARCHAR(20) NOT NULL,
 Rôle VARCHAR(30) NOT NULL,
 Valeur_Marchande INT  NOT NULL, 
-FOREIGN KEY (Equipe_id) REFERENCES Equipe(Equipe_id) ON DELETE CASCADE,
-FOREIGN KEY (Personnes_id) REFERENCES Personnes(Personnes_id) ON DELETE CASCADE
-)
+FOREIGN KEY (Equipe_id) REFERENCES Equipe(Equipe_id) ON DELETE CASCADE
+);
 
 CREATE TABLE Coach  (
 Coach_id INT PRIMARY KEY AUTO_INCREMENT,
-Personnes_id INT  NOT NULL,
 Equipe_id INT  NOT NULL,
+Nom VARCHAR(20) NOT NULL,
+Email VARCHAR(50) NOT NULL,
+Nationalité VARCHAR(20) NOT NULL
 Style_de_coaching VARCHAR(50) NOT NULL,
 Années_dexpérience INT NOT NULL,
-FOREIGN KEY (Equipe_id) REFERENCES Equipe(Equipe_id) ON DELETE CASCADE,
-FOREIGN KEY (Personnes_id) REFERENCES Personnes(Personnes_id) ON DELETE CASCADE
+FOREIGN KEY (Equipe_id) REFERENCES Equipe(Equipe_id) ON DELETE CASCADE
 );
 
 CREATE TABLE Contrat  (
@@ -42,7 +39,7 @@ Coach_id INT  NOT NULL,
 Joueur_id INT  NOT NULL,
 Equipe_id INT  NOT NULL,
 Salaire int NOT NULL,
-Clause_de_rachat dicimale (30) NOT NULL,
+Clause_de_rachat decimal (30) NOT NULL,
 Date_de_fin date ,
 FOREIGN KEY (Equipe_id) REFERENCES Equipe(Equipe_id) ON DELETE CASCADE,
 FOREIGN KEY (Coach_id) REFERENCES Coach(Coach_id) ON DELETE CASCADE,
