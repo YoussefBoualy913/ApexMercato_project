@@ -25,7 +25,7 @@
     }
 
     public function setSalaire($salaire){
-        $this ->$salaire = $salaire;
+        $this ->salaire = $salaire;
     }
     
      public function getId(){
@@ -33,7 +33,39 @@
     }
 
     public function setId($id){
-        $this ->$id = $id;
+        $this ->id = $id;
+    }
+
+     public function getEquipe_id(){
+       return  $this ->Equipe_id;
+    }
+
+    public function setEquipe_Equipe_id($Equipe_id){
+        $this ->Equipe_id = $Equipe_id;
+    }
+
+     public function getPseudo(){
+       return  $this ->Pseudo;
+    }
+
+    public function setPseudo($Pseudo){
+        $this ->Pseudo = $Pseudo;
+    }
+
+     public function getRôle(){
+       return  $this ->Rôle;
+    }
+
+    public function setRôle($Rôle){
+        $this ->Rôle = $Rôle;
+    }
+
+     public function getValeur_Marchande(){
+       return  $this ->Valeur_Marchande;
+    }
+
+    public function setValeur_Marchande($Valeur_Marchande){
+        $this ->Valeur_Marchande = $Valeur_Marchande;
     }
    
 
