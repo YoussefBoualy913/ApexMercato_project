@@ -2,6 +2,8 @@
  require_once ('Person.php');
  class  Player extends Person{
 
+    private int $id ;
+    private int $Equipe_id ;
     private int $salaire ;
     private string $Pseudo ;
     private string $Rôle ;
@@ -25,7 +27,14 @@
     public function setSalaire($salaire){
         $this ->$salaire = $salaire;
     }
+    
+     public function getId(){
+       return  $this ->id;
+    }
 
+    public function setId($id){
+        $this ->$id = $id;
+    }
    
 
 }

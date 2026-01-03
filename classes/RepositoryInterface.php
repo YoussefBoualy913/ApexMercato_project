@@ -2,9 +2,9 @@
 interface RepositoryInterface{
     
     public function getAll();
-    public function findId();
-    public function save();
-    public function updete();
-    public function delete();
+    public function findById(int $id);
+    public function save(object $person);
+    public function updete(object $person);
+    public function delete(int $id);
 }
 ?>
