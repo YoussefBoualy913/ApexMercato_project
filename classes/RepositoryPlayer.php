@@ -1,17 +1,20 @@
 <?php
+require_once('RepositoryInterface.php');
 
 class RepositoryPlayer implements RepositoryInterface{
     private PDO $pdo;
 
     public function __construct($pdo){
-        $this ->$pdo = $pdo;
+        $this ->pdo = $pdo;
     }
   
     
     public function getAll():array{
-        $sql = "select * 
-               from Personnes
-               join Joueur  on Personnes.id = Joueur.id ";
+        $sql = "SELECT joueur.id ,personnes.Nom,joueur.Rôle,Equipe.Nom as nomequipe,contrat.Salaire
+                FROM personnes
+                JOIN joueur on personnes.id = joueur.id
+                JOIN equipe on equipe.id = joueur.Equipe_id
+                JOIN contrat on joueur.id = contrat.Personnes_id;";
         $stmt = $this->pdo ->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);

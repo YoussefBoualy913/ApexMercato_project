@@ -1,10 +1,11 @@
 <?php
+require_once('RepositoryInterface.php');
 
 class RepositoryCoach implements RepositoryInterface{
     private PDO $pdo;
 
     public function __construct($pdo){
-        $this ->$pdo = $pdo;
+        $this ->pdo = $pdo;
     }
   
     

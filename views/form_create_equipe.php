@@ -13,7 +13,7 @@ $result = $repoequipe->findById($_GET['equipe_id']);
 ?>
     <div class="container">
          <div class="section-header mt-2">
-            <h2>Ajouter un Équipes</h2>
+            <h2>➕ Ajouter un Équipes</h2>
         </div>
 
         <div class="form-container fade-in">

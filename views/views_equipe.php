@@ -37,8 +37,10 @@ $result = $repoequipe->getAll();
                         <td><span class='card-badge badge-player'>".$equpe['Budget']."</span></td>
                         <td>".$equpe['Manager']."</td>
                         <td>
-                            <a href='form_create_equipe.php? equipe_id=$id' class='btn btn-secondary' style='padding: 0.4rem 0.8rem; font-size: 0.85rem;'>✏️ Modifier</a>
-                            <a href='../actions/dellet_equipe.php? equipe_id=$id' class='btn btn-secondary' style='padding: 0.4rem 0.8rem; font-size: 0.85rem;'>✏️ supprimer</a>
+                            <a href='form_create_equipe.php? equipe_id=$id' class='btn ' style='padding: 0.4rem 0.8rem; font-size: 0.85rem;'>✏️ Modifier</a>
+                            <a href='../actions/dellet_equipe.php? equipe_id=$id' class='btn ' style='padding: 0.4rem 0.8rem; font-size: 0.85rem;'>✖️ supprimer</a>
+                            <a href='form_create_player.php? equipe_id=$id' class='btn btn-secondary' style='padding: 0.4rem 0.8rem; font-size: 0.85rem;'>➕ add Joueour</a>
+                            <a href='form_create_Coach.php? equipe_id=$id' class='btn btn-secondary' style='padding: 0.4rem 0.8rem; font-size: 0.85rem;'>➕ add Coach</a>
                         </td>
                     </tr>";
                     }

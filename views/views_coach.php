@@ -4,7 +4,7 @@ require_once ('../header.php');
     <div class="container">
         <div class="section-header mt-2">
             <h2>👥 Coach</h2>
-             <a href="form_create_Coach.php" class="btn btn-primary mt-2"> Créer </a>
+             <a href="views_equipe.php" class="btn btn-primary mt-2"> Créer </a>
             
         </div>
 

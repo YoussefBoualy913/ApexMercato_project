@@ -12,7 +12,7 @@
             <a href="index.html" class="logo">⚡ APEX Management</a>
             <ul class="nav-links">
                 <li><a href="admin_dashboard.php">Dashboard </a></li>
-                <li><a href="views_player.php" class="active">Joueur</a></li>
+                <li><a href="views_player.php" class="">Joueur</a></li>
                 <li><a href="views_Coach.php">Couch</a></li>
                 <li><a href="views_equipe.php">Équipes</a></li>
                 <li><a href="views_Transfert.php">Transfert</a></li>
