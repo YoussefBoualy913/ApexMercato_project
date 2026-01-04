@@ -23,7 +23,7 @@ class RepositoryEquipe implements RepositoryInterface{
                where id = ?";
         $stmt = $this->pdo ->prepare($sql);
         $stmt->execute([$id]);
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
     public function save(object $Equipe):void{
@@ -44,7 +44,7 @@ class RepositoryEquipe implements RepositoryInterface{
     }
 
     public function delete(int $id):void{
-       $sql = "select * 
+       $sql = "DELETE 
                from Equipe
                where id = ?";
         $stmt = $this->pdo ->prepare($sql);

@@ -51,7 +51,7 @@ class RepositoryPlayer implements RepositoryInterface{
     }
 
     public function delete(int $id):void{
-       $sql = "select * 
+       $sql = "DELETE 
                from Personnes
                where id = $id";
         $stmt = $this->pdo ->prepare($sql);

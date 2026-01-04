@@ -1,6 +1,13 @@
 
 <?php
 require_once ('../header.php');
+
+require_once('../db_connect.php');
+require_once('../classes/RepositoryEquipe.php');
+
+$db = Dtabese::getInstnce();
+$repoequipe = new  RepositoryEquipe($db->getConnexion());
+$result = $repoequipe->getAll();
 ?>
     <div class="container">
         <div class="section-header mt-2">
@@ -15,23 +22,27 @@ require_once ('../header.php');
                     <tr>
                         <th>ID</th>
                         <th>Équipe</th>
-                        <th>Coach</th>
-                        <th>nombre de joueurs</th>
+                        <th>Budget</th>
+                        <th>Manager</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td style="color: #64748b;">#CNT-2025-089</td>
-                        <td>🎮 Cinkrof</td>
-                        <td><span class="card-badge badge-player">ahmed</span></td>
-                        <td>30</td>
+                    <?php 
+                    foreach($result as $equpe){
+                        $id = $equpe['id'];
+                   echo" <tr>
+                        <td style='color: #64748b;'> $id</td>
+                        <td>🎮 ".$equpe['Nom']."</td>
+                        <td><span class='card-badge badge-player'>".$equpe['Budget']."</span></td>
+                        <td>".$equpe['Manager']."</td>
                         <td>
-                            <a class="btn btn-secondary" style="padding: 0.4rem 0.8rem; font-size: 0.85rem;">✏️ Modifier</a>
-                            <a class="btn btn-secondary" style="padding: 0.4rem 0.8rem; font-size: 0.85rem;">✏️ supprimer</a>
+                            <a href='form_create_equipe.php? equipe_id=$id' class='btn btn-secondary' style='padding: 0.4rem 0.8rem; font-size: 0.85rem;'>✏️ Modifier</a>
+                            <a href='../actions/dellet_equipe.php? equipe_id=$id' class='btn btn-secondary' style='padding: 0.4rem 0.8rem; font-size: 0.85rem;'>✏️ supprimer</a>
                         </td>
-                    </tr>
-                   
+                    </tr>";
+                    }
+                   ?>
                    
                 </tbody>
             </table>

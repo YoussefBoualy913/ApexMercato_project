@@ -1,6 +1,15 @@
 
 <?php
 require_once ('../header.php');
+
+if (isset($_GET['equipe_id'])){
+require_once('../db_connect.php');
+require_once('../classes/RepositoryEquipe.php');
+
+$db = Dtabese::getInstnce();
+$repoequipe = new  RepositoryEquipe($db->getConnexion());
+$result = $repoequipe->findById($_GET['equipe_id']);
+}
 ?>
     <div class="container">
          <div class="section-header mt-2">
@@ -8,21 +17,21 @@ require_once ('../header.php');
         </div>
 
         <div class="form-container fade-in">
-            <form id="teamForm" action="../actions/add_equipe.php" method="POST">
+            <form id="teamForm" action="<?php if(isset($_GET['equipe_id'])){$id = $_GET['equipe_id']; echo"../actions/updete_equipe.php? equipe_id=$id";}else{echo "../actions/add_equipe.php";}?>" method="POST">
                 <div class="form-grid">
                     <div class="form-group">
                         <label for="teamName">Nom de l'équipe *</label>
-                        <input type="text" id="teamName" name="Nom" placeholder="Ex: Karmine Corp" >
+                        <input type="text" id="teamName" name="Nom" <?php if(isset($_GET['equipe_id'])){ echo "value='".$result['Nom']."'";} ?> placeholder="Ex: Karmine Corp" require>
                     </div>
 
                     <div class="form-group">
                         <label for="teamBudget">Budget (€) *</label>
-                        <input type="number" id="teamBudget" name="Budget" placeholder="Ex: 5000000" >
+                        <input type="number" id="teamBudget" name="Budget" <?php if(isset($_GET['equipe_id'])){ echo "value='".$result['Budget']."'";} ?> placeholder="Ex: 5000000" require>
                     </div>
 
                     <div class="form-group">
                         <label for="teamManager">Manager *</label>
-                        <input type="text" id="teamManager" name="Manager" placeholder="Ex: Kameto" >
+                        <input type="text" id="teamManager" name="Manager" <?php if(isset($_GET['equipe_id'])){ echo "value='".$result['Manager']."'";} ?> placeholder="Ex: Kameto" require>
                     </div>
 
                    

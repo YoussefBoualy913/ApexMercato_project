@@ -8,11 +8,12 @@ $eq = new  Player() ;
 $db = Dtabese::getInstnce();
 $repoequipe = new  RepositoryEquipe($db->getConnexion()) ;
 
+$eq->setId($_GET['equipe_id']);
 $eq->setNom($_POST['Nom']);
 $eq->setBudget($_POST['Budget']);
 $eq->setManager($_POST['Manager']);
 
-$repoequipe->save($eq);
+$repoequipe->updete($eq);
 header('location:../views/views_equipe.php');
 }
 
