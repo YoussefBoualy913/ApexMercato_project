@@ -18,7 +18,7 @@ abstract class Person{
     }
 
     public function setNom($Nom){
-        $this ->$Nom = $Nom;
+        $this ->Nom = $Nom;
     }
 
      public function getEmail(){
@@ -26,7 +26,7 @@ abstract class Person{
     }
 
     public function setEmail($Email){
-        $this ->$Email = $Email;
+        $this ->Email = $Email;
     }
 
      public function getNationalité(){
@@ -34,7 +34,7 @@ abstract class Person{
     }
 
     public function setNationalité($Nationalité){
-        $this ->$Nationalité = $Nationalité;
+        $this ->Nationalité = $Nationalité;
     
 
 

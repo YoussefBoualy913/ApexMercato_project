@@ -9,6 +9,14 @@ if (isset($_POST['submit'])){
             header('location:admin_dashboard.php');
             exit;
     }
+    
+     if ($_POST['username'] == "journaliste" && $_POST['password'] == "journaliste"){
+   
+            $_SESSION['username'] = "journaliste";
+            $_SESSION['password'] = "journaliste";
+            header('location:journaliste_view.php');
+            exit;
+    }
 
 }
 

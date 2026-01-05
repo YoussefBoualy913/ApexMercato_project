@@ -4,7 +4,7 @@ require_once('../db_connect.php');
 require_once('../classes/Team.php');
 require_once('../classes/RepositoryEquipe.php');
 
-$eq = new  Player() ;
+$eq = new  Equipe() ;
 $db = Dtabese::getInstnce();
 $repoequipe = new  RepositoryEquipe($db->getConnexion()) ;
 

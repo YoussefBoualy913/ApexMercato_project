@@ -30,7 +30,7 @@ class RepositoryPlayer implements RepositoryInterface{
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function save(object $player):void{
+    public function save(object $player):int{
         $sql = "INSERT INTO Personnes(Nom, Email,Nationalité) VALUES(?,?,?)";
         $stmt = $this->pdo ->prepare($sql);
         $stmt->execute([$player->getNom(),$player->getEmail(),$player->getNationalité()]);
@@ -39,7 +39,8 @@ class RepositoryPlayer implements RepositoryInterface{
          $sql = "INSERT INTO Joueur(id,Equipe_id,Pseudo,Rôle,Valeur_Marchande) VALUES(?,?,?,?,?)";
         $stmt = $this->pdo ->prepare($sql);
         $stmt->execute([$player->getId(),$player->getEquipe_id(),$player->getPseudo(),$player->getRôle(),$player->getValeur_Marchande()]);
-
+        
+        return $player->getId();
     }
 
     public function updete(object $player):void{

@@ -40,7 +40,7 @@ Personnes_id INT  NOT NULL,
 Equipe_id INT  NOT NULL,
 Salaire int NOT NULL,
 Clause_de_rachat decimal (30) NOT NULL,
-Date_de_fin date ,
+Date_de_fin DATETIME ,
 Date_de_débute DATETIME DEFAULT CURRENT_TIMESTAMP,
 FOREIGN KEY (Equipe_id) REFERENCES Equipe(id) ON DELETE CASCADE,
 FOREIGN KEY (Personnes_id) REFERENCES Personnes(id) ON DELETE CASCADE

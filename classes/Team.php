@@ -1,6 +1,6 @@
 <?php
 
- class  Player {
+ class  Equipe {
 
     private int $id ;
     private string $Nom ;

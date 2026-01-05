@@ -1,4 +1,10 @@
 <?php
+session_start() ;
+if ($_SESSION['username'] !=="admin" && $_SESSION['password'] !=="admin"){
+
+            header('location:login.php');
+            exit;
+    }
 require_once ('../header.php');
 ?>
     <div class="container">

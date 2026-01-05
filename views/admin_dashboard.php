@@ -1,6 +1,7 @@
 
 <?php
  session_start() ;
+
 if ($_SESSION['username'] !=="admin" && $_SESSION['password'] !=="admin"){
 
             header('location:login.php');
@@ -48,67 +49,6 @@ require_once ('../header.php');
 
        
        
-
-       
-
-        <div class="section-header mt-2">
-            <h2>📄 Création de Contrat</h2>
-        </div>
-
-        <div class="form-container fade-in">
-            <form id="contractForm">
-                <div class="form-grid">
-                    <div class="form-group">
-                        <label for="contractPlayer">Joueur / Coach *</label>
-                        <select id="contractPlayer" required>
-                            <option value="">Sélectionner...</option>
-                            <option value="Cinkrof">🎮 Cinkrof (Joueur)</option>
-                            <option value="Rekkles">🎮 Rekkles (Joueur)</option>
-                            <option value="Caps">🎮 Caps (Joueur)</option>
-                            <option value="Dylan">🎯 Dylan Falco (Coach)</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="contractTeam">Équipe *</label>
-                        <select id="contractTeam" required>
-                            <option value="">Sélectionner...</option>
-                            <option value="KC">Karmine Corp</option>
-                            <option value="G2">G2 Esports</option>
-                            <option value="VIT">Team Vitality</option>
-                            <option value="FNC">Fnatic</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="contractSalary">Salaire Annuel (€) *</label>
-                        <input type="number" id="contractSalary" placeholder="Ex: 150000" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="contractClause">Clause de Rachat (€) *</label>
-                        <input type="number" id="contractClause" placeholder="Ex: 500000" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="contractStart">Date de Début *</label>
-                        <input type="date" id="contractStart" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="contractEnd">Date de Fin *</label>
-                        <input type="date" id="contractEnd" required>
-                    </div>
-                </div>
-
-                <div class="form-group mt-2">
-                    <label for="contractNotes">Notes additionnelles</label>
-                    <textarea id="contractNotes" rows="3" placeholder="Conditions spéciales, bonus de performance..."></textarea>
-                </div>
-
-                <button type="submit" class="btn btn-primary mt-2">✅ Générer le Contrat</button>
-            </form>
-        </div>
 
         <div class="section-header mt-2">
             <h2>💸 Exécution de Transfert</h2>
