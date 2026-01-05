@@ -18,7 +18,7 @@ if(isset($_POST['submit'])){
        $player->setValeur_Marchande($_POST['Valeur_Marchande']);
 
        $id = $repoplayer->save($player);
-       header("location:../views/form_creat_contrat.php? Equipe_id=$Equipe_id & Personne_id=$id");
+       header("location:../views/form_creat_contrat.php? Equipe_id=$Equipe_id & Personne_id=$id & player_contrat=1");
        exit;
     }
 
@@ -31,7 +31,7 @@ if(isset($_POST['submit'])){
        $db = Dtabese::getInstnce();
        $repocontract = new  RepositoryContract($db->getConnexion()) ;
        
-       $contract->setPersonnes_id($_GET['Personnes_id']);
+       $contract->setPersonnes_id($_GET['Personne_id']);
        $contract->setEquipe_id($_GET['Equipe_id']);
        $contract->setsalaire($_POST['Salaire']);
        $contract->setClause_de_rachat($_POST['Clause_de_rachat']);

@@ -25,7 +25,7 @@
     }
 
     public function setPersonnes_id($Personnes_id){
-        $this ->Personnes_id = $Personnes_id;
+        $this ->Personnes_id = (int)$Personnes_id;
     }
 
      public function getEquipe_id(){

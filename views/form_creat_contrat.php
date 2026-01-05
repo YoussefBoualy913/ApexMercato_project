@@ -20,9 +20,9 @@ $Equipe_id =$_GET['Equipe_id'];
         <div class="section-header_contra">
             <h2>📄<span> Création de Contrat</span></h2>
         </div>
-
         <div class="form-container fade-in">
-            <form id="contractForm" action="../actions/add_player.php? Equipe_id=<?=$Equipe_id?> & Personnes_id=<?=$Personnes_id?>" method="POST">
+            <form id="contractForm" action="<?php if(isset($_GET['player_contrat'])){ echo"../actions/add_player.php? Equipe_id=$Equipe_id & Personne_id=$Personnes_id";}
+            else{echo "../actions/add_Coach.php? Equipe_id=$Equipe_id & Personne_id=$Personnes_id";}?>" method="POST">
                 <div class="form-grid">
 
                     <div class="form-group">

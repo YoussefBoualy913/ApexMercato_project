@@ -6,6 +6,12 @@ if ($_SESSION['username'] !=="admin" && $_SESSION['password'] !=="admin"){
             exit;
     }
 require_once ('../header.php');
+require_once('../db_connect.php');
+require_once('../classes/RepositoryCoach.php');
+
+$db = Dtabese::getInstnce();
+$repoCoach = new  RepositoryCoach($db->getConnexion());
+$result = $repoCoach->getAll();
 ?>
     <div class="container">
         <div class="section-header mt-2">
@@ -21,25 +27,31 @@ require_once ('../header.php');
                         <th>ID</th>
                         <th>Coach</th>
                         <th>Style de coaching</th>
+                        <th>Années d'experience</th>
                         <th>Équipe</th>
                         <th>Salaire</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
+                    <?php  
+                       foreach($result as $Coach){
+                        $id = $Coach['id'];
+                    echo "
                     <tr>
-                        <td style="color: #64748b;">#CNT-2025-089</td>
-                        <td>🎮 Cinkrof</td>
-                        <td><span class="card-badge badge-player">Joueur</span></td>
-                        <td>Karmine Corp</td>
-                        <td style="color: var(--success);">€180K/an</td>
+                        <td style='color: #64748b;'>$id</td>
+                        <td>".$Coach['Nom']."</td>
+                        <td><span class='card-badge badge-player'>".$Coach['Style_de_coaching']."</span></td>
+                        <td>".$Coach['Années_dexpérience']."</td>
+                        <td>".$Coach['nomequipe']."</td>
+                        <td style='color: var(--success);'>€".$Coach['Salaire']."K/an</td>
                         <td>
-                            <a class="btn btn-secondary" style="padding: 0.4rem 0.8rem; font-size: 0.85rem;">✏️ Modifier</a>
-                            <a class="btn btn-secondary" style="padding: 0.4rem 0.8rem; font-size: 0.85rem;">✏️ supprimer</a>
+                            <a href='form_create_Coach.php? Coach_id=$id' class='btn btn-secondary' style='padding: 0.4rem 0.8rem; font-size: 0.85rem;'>✏️ Modifier</a>
+                            <a href='../actions/dellet_Coach.php? Coach_id=$id' class='btn btn-secondary' style='padding: 0.4rem 0.8rem; font-size: 0.85rem;'>✏️ supprimer</a>
                         </td>
-                    </tr>
-                   
-                   
+                    </tr>";
+                       }
+                   ?>
                 </tbody>
             </table>
         </div>

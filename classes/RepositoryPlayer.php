@@ -24,10 +24,10 @@ class RepositoryPlayer implements RepositoryInterface{
          $sql = "select * 
                from Personnes
                join Joueur  on Personnes.id = Joueur.id 
-               where id = $id";
+               where Joueur.id = ?";
         $stmt = $this->pdo ->prepare($sql);
-        $stmt->execute();
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $stmt->execute([$id]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
     public function save(object $player):int{
