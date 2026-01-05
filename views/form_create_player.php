@@ -7,15 +7,16 @@ if ($_SESSION['username'] !=="admin" && $_SESSION['password'] !=="admin"){
             exit;
     }
 require_once ('../header.php');
-$Equipe_id =$_GET['equipe_id'];
+if (isset($_GET['equipe_id'])){
+$Equipe_id =$_GET['equipe_id'];}
 ?>
     <div class="container">
         <div class="section-header mt-2">
             <h2>➕ Ajouter un Joueur</h2>
         </div>
-
+     
         <div class="form-container fade-in">
-            <form id="playerForm" action="../actions/add_player.php? Equipe_id=<?=$Equipe_id?>" method="POST">
+            <form id="playerForm" action="<?php if(isset($_GET['player_id'])){$id = $_GET['player_id']; echo"../actions/updete_player.php? player_id=$id";}else{echo "../actions/add_player.php? Equipe_id=$Equipe_id";}?>" method="POST">
                 <div class="form-grid">
                     <div class="form-group">
                         <label for="playerName">Nom complet *</label>

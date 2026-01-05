@@ -48,9 +48,9 @@ class RepositoryPlayer implements RepositoryInterface{
         $stmt = $this->pdo ->prepare($sql);
         $stmt->execute([$player->getNom(),$player->getEmail(),$player->getNationalité(),$player->getId()]);
 
-         $sql = "UPDATE Joueur set Equipe_id = ?,Pseudo = ?,Rôle = ?,Valeur_Marchande = ? where id = ?";
+         $sql = "UPDATE Joueur set Pseudo = ?,Rôle = ?,Valeur_Marchande = ? where id = ?";
         $stmt = $this->pdo ->prepare($sql);
-        $stmt->execute([$player->getEquipe_id(),$player->getPseudo(),$player->getRôle(),$player->getValeur_Marchande(),$player->getId()]);
+        $stmt->execute([$player->getPseudo(),$player->getRôle(),$player->getValeur_Marchande(),$player->getId()]);
 
     }
 

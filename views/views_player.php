@@ -14,6 +14,7 @@ require_once('../classes/RepositoryPlayer.php');
 $db = Dtabese::getInstnce();
 $repojoueour = new  RepositoryPlayer($db->getConnexion());
 $result = $repojoueour->getAll();
+
 ?>
     <div class="container">
         <div class="section-header mt-2">
@@ -37,17 +38,17 @@ $result = $repojoueour->getAll();
                 <tbody>
                     <?php
                      foreach($result as $joueour){
-
+                      $id = $joueour['id'];
                         echo "
                     <tr>
-                        <td style='color: #64748b;'>".$joueour['id']."</td>
+                        <td style='color: #64748b;'>$id</td>
                         <td>".$joueour['Nom']."</td>
                         <td><span class='card-badge badge-player'>".$joueour['Rôle']."</span></td>
                         <td>".$joueour['nomequipe']."</td>
                         <td style='color: var(--success);'>€".$joueour['Salaire']."K/an</td>
                         <td>
-                            <a class='btn btn-secondary' style='padding: 0.4rem 0.8rem; font-size: 0.85rem;'>✏️ Modifier</a>
-                            <a class='btn btn-secondary' style='padding: 0.4rem 0.8rem; font-size: 0.85rem;'>✏️ supprimer</a>
+                            <a href='form_create_player.php? player_id=$id' class='btn btn-secondary' style='padding: 0.4rem 0.8rem; font-size: 0.85rem;'>✏️ Modifier</a>
+                            <a href='../actions/dellet_player.php? player_id=$id' class='btn btn-secondary' style='padding: 0.4rem 0.8rem; font-size: 0.85rem;'>✏️ supprimer</a>
                         </td>
                     </tr> ";
                      }
