@@ -1,12 +1,19 @@
 <?php 
+// use  classes\Equipe;
+// use  Repository\RepositoryEquipe;
+
+
+// spl_autoload_register(function(string $className){
+//     $path = "../" . str_replace("\\","/",$className) . ".php";
+//     require $path;
+// });
 if(isset($_POST['submit'])){
-require_once('../db_connect.php');
-require_once('../classes/Team.php');
+require_once('../classes/Team.php');              
 require_once('../classes/RepositoryEquipe.php');
 
+
 $eq = new  Equipe() ;
-$db = Dtabese::getInstnce();
-$repoequipe = new  RepositoryEquipe($db->getConnexion()) ;
+$repoequipe = new  RepositoryEquipe() ;
 
 $eq->setId($_GET['equipe_id']);
 $eq->setNom($_POST['Nom']);

@@ -4,8 +4,8 @@ require_once('RepositoryInterface.php');
 class RepositoryContract implements RepositoryInterface{
     private PDO $pdo;
 
-    public function __construct($pdo){
-        $this ->pdo = $pdo;
+    public function __construct(){
+         $this ->pdo = Dtabese::getInstnce()->getConnexion();
     }
   
     

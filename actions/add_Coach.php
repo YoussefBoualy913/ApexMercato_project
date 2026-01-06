@@ -1,13 +1,11 @@
 <?php 
 if(isset($_POST['submit'])){
     if (isset($_POST['Style_de_coaching'])){
-       require_once('../db_connect.php');
        require_once('../classes/Coach.php');
        require_once('../classes/RepositoryCoach.php');
 
        $Coach = new  Coach() ;
-       $db = Dtabese::getInstnce();
-       $repoCoach = new  RepositoryCoach($db->getConnexion()) ;
+       $repoCoach = new  RepositoryCoach() ;
        $Equipe_id = $_GET['Equipe_id'];
        $Coach->setNom($_POST['Nom']);
        $Coach->setEmail($_POST['Email']);
@@ -23,13 +21,11 @@ if(isset($_POST['submit'])){
     }
 
      if (isset($_POST['Salaire'])){
-       require_once('../db_connect.php');
        require_once('../classes/Contract.php');
        require_once('../classes/RepositoryContract.php');
-
+       
        $contract = new  Contract() ;
-       $db = Dtabese::getInstnce();
-       $repocontract = new  RepositoryContract($db->getConnexion()) ;
+       $repocontract = new  RepositoryContract() ;
        
        $contract->setPersonnes_id(($_GET['Personne_id']));
        $contract->setEquipe_id($_GET['Equipe_id']);

@@ -9,11 +9,9 @@ if ($_SESSION['username'] !=="admin" && $_SESSION['password'] !=="admin"){
 require_once ('../header.php');
 
 if (isset($_GET['equipe_id'])){
-require_once('../db_connect.php');
-require_once('../classes/RepositoryEquipe.php');
+require_once('../Repository/RepositoryEquipe.php');
 
-$db = Dtabese::getInstnce();
-$repoequipe = new  RepositoryEquipe($db->getConnexion());
+$repoequipe = new  RepositoryEquipe();
 $result = $repoequipe->findById($_GET['equipe_id']);
 }
 ?>

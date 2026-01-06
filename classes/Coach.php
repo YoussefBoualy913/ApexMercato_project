@@ -9,11 +9,7 @@
     private string $Style_de_coaching ;
     
 
-    public function __construct()
-    {
-       
-    }
-
+   
     public function getAnnualCost(){
         return $this ->salaire*12;
     }

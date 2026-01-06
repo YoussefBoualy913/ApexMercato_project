@@ -13,11 +13,11 @@ $Equipe_id =$_GET['equipe_id'];
 }
 
 if (isset($_GET['player_id'])){
-require_once('../db_connect.php');
+
 require_once('../classes/RepositoryPlayer.php');
 
-$db = Dtabese::getInstnce();
-$repoPlayer = new  RepositoryPlayer($db->getConnexion());
+
+$repoPlayer = new  RepositoryPlayer();
 $result = $repoPlayer->findById($_GET['player_id']);
 }
 ?>

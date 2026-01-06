@@ -13,7 +13,7 @@ require_once ('../header.php');
 
     <div class="container">
         <section class="hero fade-in">
-            <h1>🔑 Dashboard Administrateur</h1>
+            <h1> Dashboard Administrateur</h1>
             <p>Contrôle total du système de gestion</p>
         </section>
 

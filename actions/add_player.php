@@ -1,13 +1,11 @@
 <?php 
 if(isset($_POST['submit'])){
     if (isset($_POST['Pseudo'])){
-       require_once('../db_connect.php');
        require_once('../classes/Player.php');
        require_once('../classes/RepositoryPlayer.php');
 
        $player = new  Player() ;
-       $db = Dtabese::getInstnce();
-       $repoplayer = new  RepositoryPlayer($db->getConnexion()) ;
+       $repoplayer = new  RepositoryPlayer() ;
        $Equipe_id = $_GET['Equipe_id'];
        $player->setNom($_POST['Nom']);
        $player->setEmail($_POST['Email']);
@@ -23,13 +21,11 @@ if(isset($_POST['submit'])){
     }
 
      if (isset($_POST['Salaire'])){
-       require_once('../db_connect.php');
        require_once('../classes/Contract.php');
        require_once('../classes/RepositoryContract.php');
 
        $contract = new  Contract() ;
-       $db = Dtabese::getInstnce();
-       $repocontract = new  RepositoryContract($db->getConnexion()) ;
+       $repocontract = new  RepositoryContract() ;
        
        $contract->setPersonnes_id($_GET['Personne_id']);
        $contract->setEquipe_id($_GET['Equipe_id']);

@@ -12,11 +12,10 @@ if (isset($_GET['equipe_id'])){
 $Equipe_id =$_GET['equipe_id'];}
 
 if (isset($_GET['Coach_id'])){
-require_once('../db_connect.php');
+
 require_once('../classes/RepositoryCoach.php');
 
-$db = Dtabese::getInstnce();
-$repoCoach = new  RepositoryCoach($db->getConnexion());
+$repoCoach = new  RepositoryCoach();
 $result = $repoCoach->findById($_GET['Coach_id']);
 }
 ?>

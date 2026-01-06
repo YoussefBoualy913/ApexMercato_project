@@ -8,11 +8,18 @@ if ($_SESSION['username'] !=="admin" && $_SESSION['password'] !=="admin"){
     }
 require_once ('../header.php');
 
-require_once('../db_connect.php');
-require_once('../classes/RepositoryEquipe.php');
 
-$db = Dtabese::getInstnce();
-$repoequipe = new  RepositoryEquipe($db->getConnexion());
+spl_autoload_register(function(string $className){
+    
+        $path ="../Repository"."/". $className.".php";
+            require $path;
+        
+    }
+);
+
+
+
+$repoequipe = new  RepositoryEquipe();
 $result = $repoequipe->getAll();
 ?>
     <div class="container">

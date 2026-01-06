@@ -5,12 +5,12 @@ if ($_SESSION['username'] !=="admin" && $_SESSION['password'] !=="admin"){
             header('location:login.php');
             exit;
     }
+    
 require_once ('../header.php');
-require_once('../db_connect.php');
 require_once('../classes/RepositoryCoach.php');
 
-$db = Dtabese::getInstnce();
-$repoCoach = new  RepositoryCoach($db->getConnexion());
+
+$repoCoach = new  RepositoryCoach();
 $result = $repoCoach->getAll();
 ?>
     <div class="container">

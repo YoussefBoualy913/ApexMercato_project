@@ -10,12 +10,6 @@
     private int  $Valeur_Marchande ;
    
 
-    public function __construct()
-    {
-      
-      
-    }
-
     public function getAnnualCost(){
        
     }

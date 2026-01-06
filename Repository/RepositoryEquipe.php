@@ -1,11 +1,15 @@
 <?php
+// namespace Repository;
+
+// use Repository\RepositoryInterface;
 require_once('RepositoryInterface.php');
+require_once('../Dtabese.php');
 
 class RepositoryEquipe implements RepositoryInterface{
     private PDO $pdo;
 
-    public function __construct(PDO $pdo){
-        $this ->pdo = $pdo;
+    public function __construct(){
+        $this ->pdo = Dtabese::getInstnce()->getConnexion();
     }
   
     

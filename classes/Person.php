@@ -5,11 +5,7 @@ abstract class Person{
     protected string $Email;
     protected string $Nationalité;
 
-    public function __construct()
-    {
-      
-      
-    }
+   
 
     abstract public function getAnnualCost();
 

@@ -1,12 +1,11 @@
 <?php 
 if (isset($_POST['Pseudo'])){
-       require_once('../db_connect.php');
+      
        require_once('../classes/Player.php');
        require_once('../classes/RepositoryPlayer.php');
 
        $player = new  Player() ;
-       $db = Dtabese::getInstnce();
-       $repoplayer = new  RepositoryPlayer($db->getConnexion()) ;
+       $repoplayer = new  RepositoryPlayer() ;
        $player_id = $_GET['player_id'];
        $player->setId($player_id);
        $player->setNom($_POST['Nom']);

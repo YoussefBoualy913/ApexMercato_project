@@ -1,5 +1,6 @@
 <?php
 
+// namespace classes;
  class  Equipe {
 
     private int $id ;
@@ -8,11 +9,7 @@
     private string  $Manager;
    
 
-    public function __construct()
-    {
-      
-      
-    }
+   
 
 
     public function getNom(){

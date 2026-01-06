@@ -1,12 +1,18 @@
 <?php 
 if(isset($_POST['submit'])){
-require_once('../db_connect.php');
-require_once('../classes/Team.php');
-require_once('../classes/RepositoryEquipe.php');
-
+spl_autoload_register(function(string $className){
+    $fields = ["/classes/","/repository/"];
+    foreach($fields as $field){
+        $path =  "..".$field. $className.".php";
+        if(file_exists($path)){
+            require $path;
+        }
+    }
+});
 $eq = new  Equipe() ;
-$db = Dtabese::getInstnce();
-$repoequipe = new  RepositoryEquipe($db->getConnexion()) ;
+$repoequipe = new  RepositoryEquipe() ;
+
+
 
 $eq->setNom($_POST['Nom']);
 $eq->setBudget($_POST['Budget']);

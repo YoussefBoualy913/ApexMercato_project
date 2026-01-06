@@ -7,12 +7,10 @@ if ($_SESSION['username'] !=="admin" && $_SESSION['password'] !=="admin"){
             exit;
     }
 require_once ('../header.php');
-
-require_once('../db_connect.php');
 require_once('../classes/RepositoryPlayer.php');
 
-$db = Dtabese::getInstnce();
-$repojoueour = new  RepositoryPlayer($db->getConnexion());
+
+$repojoueour = new  RepositoryPlayer();
 $result = $repojoueour->getAll();
 
 ?>
