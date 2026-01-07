@@ -14,9 +14,11 @@ $player_id= $_GET['player_id'];
 $equipe_debut_id= $_GET['equipe_debut_id'];
 $equipe_fin_id= $_GET['equipe_fin_id'];
 
-$RepoFinancialEngine = new RepositoryFinancialEngine();
+$RepoFinancialEngine = new RepositoryTransfert();
 
-$result= $RepoFinancialEngine->getValeurMarchande($player_id);
+$result1= $RepoFinancialEngine->getValeurMarchande($player_id);
+$result2= $RepoFinancialEngine->getBudget($equipe_fin_id);
+
 
 
 ?>
@@ -38,27 +40,30 @@ $result= $RepoFinancialEngine->getValeurMarchande($player_id);
                     <h3 style="margin-bottom: 1rem; color: var(--primary);">💰 Calcul Financier</h3>
                     <div class="info-row">
                         <span class="info-label">Montant du Transfert</span>
-                        <span class="info-value">€<?=$result['Valeur_Marchande']; ?></span>
+                        <span class="info-value">€<?=$result1['Valeur_Marchande']; ?></span>
                     </div>
                     <div class="info-row">
                         <span class="info-label">Taxes (10%)</span>
-                        <span class="info-value">€<?php echo $tax = FinancialEngine::calculateTax($result['Valeur_Marchande']); ?></span>
+                        <span class="info-value">€<?php echo $tax = FinancialEngine::calculateTax($result1['Valeur_Marchande']); ?></span>
                     </div>
                     <div class="info-row">
                         <span class="info-label">Commission Agent (5%)</span>
-                        <span class="info-value">€<?php echo $commissia = FinancialEngine::commissionAgent($result['Valeur_Marchande']); ?></span>
+                        <span class="info-value">€<?php echo $commissia = FinancialEngine::commissionAgent($result1['Valeur_Marchande']); ?></span>
                     </div>
                     <div class="info-row" style="border-top: 2px solid var(--primary); margin-top: 1rem; padding-top: 1rem;">
                         <span class="info-label" style="font-size: 1.1rem; color: var(--accent);">TOTAL</span>
-                        <span class="value-highlight">€<?php echo $result['Valeur_Marchande'] + $tax +  $commissia ; ?></span>
+                        <span class="value-highlight">€<?php echo $result1['Valeur_Marchande'] + $tax +  $commissia ; ?></span>
                     </div>
-                    <div style="margin-top: 1rem; padding: 1rem; background: rgba(16, 185, 129, 0.1); border-radius: 8px; border: 1px solid var(--success);">
-                        <p style="color:<?php if ($result['Budget'] > $result['Valeur_Marchande'] ){echo 'var(--success)'; }else{echo 'var(--accent)'; } ?> ; font-weight: 600;">✓ Budget Karmine Corp suffisant (€<?=$result['Budget'] ; ?> disponibles)</p>
+                     
+                   <?php if ($result2['Budget'] > ($result1['Valeur_Marchande'] + $tax +$commissia)){ $budget ='suffisant'; }else{ $budget ='insuffisant';}?>
+                    <div style="margin-top: 1rem; padding: 1rem; background: rgba(16, 185, 129, 0.1); border-radius: 8px; border: 1px solid <?php  if ( $budget === "suffisant" ){echo 'var(--success)'; }else{echo 'var(--accent)'; } ?>;">
+                        <p style="color:<?php if ($budget ===  "suffisant"){echo 'var(--success)'; }else{echo 'var(--accent)'; } ?> ; font-weight: 600;">
+                            ✓ Budget <?php if ($budget === "suffisant" ){echo $result2['Nom']." ".$budget; }else{echo $result2['Nom']." ".$budget; } ?> (€<?=$result2['Budget'] ; ?> disponibles)</p>
                     </div>
                 </div>
 
                 <div class="flex gap-1 mt-2">
-                    <button type="submit" class="btn btn-success" style="flex: 1;">✅ Exécuter le Transfert</button>
+                    <a href="../actions/process_transfer.php? player_id=<?=$player_id?> & equipe_debut_id=<?=$equipe_debut_id?> & equipe_fin_id=<?=$equipe_fin_id?>" type="submit" class="btn btn-success" style="flex: 1;">✅ Exécuter le Transfert</a>
                     <button type="button" class="btn btn-danger" style="flex: 1;">❌ Annuler</button>
                 </div>
             </form>

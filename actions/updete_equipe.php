@@ -8,8 +8,8 @@
 //     require $path;
 // });
 if(isset($_POST['submit'])){
-require_once('../classes/Team.php');              
-require_once('../classes/RepositoryEquipe.php');
+require_once('../classes/Equipe.php');              
+require_once('../Repository/RepositoryEquipe.php');
 
 
 $eq = new  Equipe() ;
