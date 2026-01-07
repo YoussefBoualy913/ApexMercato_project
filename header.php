@@ -15,7 +15,7 @@
                 <li><a href="views_player.php" class="">Joueur</a></li>
                 <li><a href="views_Coach.php">Couch</a></li>
                 <li><a href="views_equipe.php">Équipes</a></li>
-                <li><a href="views_Transfert.php">Transfert</a></li>
+                <li><a href="views_trensfert.php">Transfert</a></li>
             </ul>
         </div>
     </nav>

@@ -1,0 +1,73 @@
+
+<?php
+session_start() ;
+if ($_SESSION['username'] !=="admin" && $_SESSION['password'] !=="admin"){
+
+            header('location:login.php');
+            exit;
+    }
+require_once ('../header.php');
+require_once ('../Repository/RepositoryFinancialEngine.php');
+require_once ('../classes/FinancialEngine.php');
+
+$player_id= $_GET['player_id'];
+$equipe_debut_id= $_GET['equipe_debut_id'];
+$equipe_fin_id= $_GET['equipe_fin_id'];
+
+$RepoFinancialEngine = new RepositoryFinancialEngine();
+
+$result= $RepoFinancialEngine->getValeurMarchande($player_id);
+
+
+?>
+   
+ <div class="container">
+        <div class="section-header mt-2">
+            <h2>💸 Exécution de Transfert</h2>
+        </div>
+
+        <div class="form-container fade-in">
+            <div style="background: rgba(249, 115, 22, 0.1); border: 1px solid var(--accent); border-radius: 10px; padding: 1rem; margin-bottom: 2rem;">
+                <p style="color: var(--accent); font-weight: 600;">⚠️ Attention: Les transferts sont des transactions financières irréversibles</p>
+            </div>
+
+            <form id="transferForm">
+               
+
+                <div class="mt-2" style="background: rgba(30, 41, 59, 0.5); padding: 1.5rem; border-radius: 10px; border: 1px solid rgba(139, 92, 246, 0.3);">
+                    <h3 style="margin-bottom: 1rem; color: var(--primary);">💰 Calcul Financier</h3>
+                    <div class="info-row">
+                        <span class="info-label">Montant du Transfert</span>
+                        <span class="info-value">€<?=$result['Valeur_Marchande']; ?></span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Taxes (10%)</span>
+                        <span class="info-value">€<?php echo $tax = FinancialEngine::calculateTax($result['Valeur_Marchande']); ?></span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Commission Agent (5%)</span>
+                        <span class="info-value">€<?php echo $commissia = FinancialEngine::commissionAgent($result['Valeur_Marchande']); ?></span>
+                    </div>
+                    <div class="info-row" style="border-top: 2px solid var(--primary); margin-top: 1rem; padding-top: 1rem;">
+                        <span class="info-label" style="font-size: 1.1rem; color: var(--accent);">TOTAL</span>
+                        <span class="value-highlight">€<?php echo $result['Valeur_Marchande'] + $tax +  $commissia ; ?></span>
+                    </div>
+                    <div style="margin-top: 1rem; padding: 1rem; background: rgba(16, 185, 129, 0.1); border-radius: 8px; border: 1px solid var(--success);">
+                        <p style="color:<?php if ($result['Budget'] > $result['Valeur_Marchande'] ){echo 'var(--success)'; }else{echo 'var(--accent)'; } ?> ; font-weight: 600;">✓ Budget Karmine Corp suffisant (€<?=$result['Budget'] ; ?> disponibles)</p>
+                    </div>
+                </div>
+
+                <div class="flex gap-1 mt-2">
+                    <button type="submit" class="btn btn-success" style="flex: 1;">✅ Exécuter le Transfert</button>
+                    <button type="button" class="btn btn-danger" style="flex: 1;">❌ Annuler</button>
+                </div>
+            </form>
+        </div>
+               
+ </div>       
+
+
+<?php
+require_once ('../footer.php');
+?>
+  

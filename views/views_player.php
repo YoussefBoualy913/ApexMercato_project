@@ -7,7 +7,7 @@ if ($_SESSION['username'] !=="admin" && $_SESSION['password'] !=="admin"){
             exit;
     }
 require_once ('../header.php');
-require_once('../classes/RepositoryPlayer.php');
+require_once('../Repository/RepositoryPlayer.php');
 
 
 $repojoueour = new  RepositoryPlayer();
@@ -37,6 +37,7 @@ $result = $repojoueour->getAll();
                     <?php
                      foreach($result as $joueour){
                       $id = $joueour['id'];
+                      $equipe_id = $joueour['equipe_id'];
                         echo "
                     <tr>
                         <td style='color: #64748b;'>$id</td>
@@ -47,6 +48,7 @@ $result = $repojoueour->getAll();
                         <td>
                             <a href='form_create_player.php? player_id=$id' class='btn btn-secondary' style='padding: 0.4rem 0.8rem; font-size: 0.85rem;'>✏️ Modifier</a>
                             <a href='../actions/dellet_player.php? player_id=$id' class='btn btn-secondary' style='padding: 0.4rem 0.8rem; font-size: 0.85rem;'>✏️ supprimer</a>
+                            <a href='./views_equipe_a_trensferer.php? player_id=$id & equipe_debut_id=$equipe_id' class='btn btn-secondary' style='padding: 0.4rem 0.8rem; font-size: 0.85rem;'>💰🔁 Transférer</a>
                         </td>
                     </tr> ";
                      }

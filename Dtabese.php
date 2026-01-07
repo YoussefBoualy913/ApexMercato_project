@@ -1,7 +1,7 @@
 <?php
 // namespace ApexMerca;
-
-
+// use PDO;
+// use PDOException;
 class Dtabese{
       
     private string $host = "localhost";
