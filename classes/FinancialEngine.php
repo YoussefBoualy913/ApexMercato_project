@@ -12,7 +12,11 @@ final class FinancialEngine{
          return self::$commissionAgent =  $montant * (5 / 100);
     }
 
-     public static function newBedget(float $bedget,float $montant):float {
+     public static function newBedgetEquipeDbute(float $bedget,float $montant):float {
+         return self::$bedget = $bedget +( self::calculateTax($montant) + self::commissionAgent($montant));
+    }
+    
+    public static function newBedgetEquipeFin(float $bedget,float $montant):float {
          return self::$bedget = $bedget -( self::calculateTax($montant) + self::commissionAgent($montant));
     }
 
