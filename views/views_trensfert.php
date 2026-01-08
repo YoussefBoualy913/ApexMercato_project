@@ -33,7 +33,7 @@ $result2= $RepoFinancialEngine->getBudget($equipe_fin_id);
                 <p style="color: var(--accent); font-weight: 600;">⚠️ Attention: Les transferts sont des transactions financières irréversibles</p>
             </div>
 
-            <form id="transferForm" action="../actions/process_transfer.php? player_id=<?=$player_id?> & equipe_debut_id=<?=$equipe_debut_id?> & equipe_fin_id=<?=$equipe_fin_id?>" method="$_POST">
+            <form id="transferForm" action="../actions/process_transfer.php? player_id=<?=$player_id?> & equipe_debut_id=<?=$equipe_debut_id?> & equipe_fin_id=<?=$equipe_fin_id?>" method="POST">
                 <div class="form-container fade-in">
                       <h3 style="margin-bottom: 1rem; color: var(--primary);"> 📰 Nouvelle contract</h3>
                    <div class="form-grid">

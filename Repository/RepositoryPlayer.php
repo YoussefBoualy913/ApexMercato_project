@@ -10,11 +10,11 @@ class RepositoryPlayer implements RepositoryInterface{
   
     
     public function getAll():array{
-        $sql = "SELECT joueur.id,equipe.id as equipe_id  ,personnes.Nom,joueur.Rôle,Equipe.Nom as nomequipe,contrat.Salaire
+        $sql = "SELECT joueur.id,equipe.id as equipe_id  ,personnes.Nom,joueur.Rôle,Equipe.Nom as nomequipe,joueur.Valeur_Marchande
                 FROM personnes
                 JOIN joueur on personnes.id = joueur.id
-                JOIN equipe on equipe.id = joueur.Equipe_id
-                JOIN contrat on joueur.id = contrat.Personnes_id;";
+                JOIN equipe on equipe.id = joueur.Equipe_id";
+               
         $stmt = $this->pdo ->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
