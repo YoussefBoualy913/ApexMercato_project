@@ -6,11 +6,21 @@ if ($_SESSION['username'] !== "admin" && $_SESSION['password'] !== "admin") {
     exit;
 }
 require_once('../header.php');
-require_once('../Repository/RepositoryPlayer.php');
+require_once('../Repository/Repositorypagenation.php');
 
+if (isset($_GET['page'])){
+    $prevoicetpage = $_GET['page']-1;
+    $nextpage = $_GET['page']+1;
+    $curantepage = $_GET['page'];
+}else{
+   $curantepage =1;
+   $prevoicetpage =1;
+   $nextpage = 2;
+}
 
-$repojoueour = new  RepositoryPlayer();
-$result = $repojoueour->getAll();
+$repojoueour = new  Repositorypagenation();
+$result = $repojoueour->singlePage($curantepage);
+$totaleJoueur = $repojoueour->totaleJoueur();
 ?>
 <div class="container">
     <div class="section-header mt-2">
@@ -54,6 +64,10 @@ $result = $repojoueour->getAll();
 
             </tbody>
         </table>
+         <div class="section-header ">
+        <a href="views_Player.php? page=<?=$prevoicetpage;?>" style="visibility:<?php if(($curantepage ==1)){echo "hidden";};?> ;" class="btn btn-primary mt-2"> Previoce</a>
+        <a href="views_Player.php? page=<?=$nextpage;?>" style="visibility:<?php if(($curantepage*3)>= $totaleJoueur){echo "hidden";};?> ;" class="btn btn-primary mt-2"> Next </a>
+       </div>
     </div>
 
 
