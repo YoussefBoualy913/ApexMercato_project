@@ -1,38 +1,39 @@
 <?php
- session_start() ;
-if (isset($_POST['submit'])){
+session_start();
+if (isset($_POST['submit'])) {
 
-    if ($_POST['username'] == "admin" && $_POST['password'] == "admin"){
-   
-            $_SESSION['username'] = "admin";
-            $_SESSION['password'] = "admin";
-            header('location:admin_dashboard.php');
-            exit;
-    }
-    
-     if ($_POST['username'] == "journaliste" && $_POST['password'] == "journaliste"){
-   
-            $_SESSION['username'] = "journaliste";
-            $_SESSION['password'] = "journaliste";
-            header('location:journaliste_view.php');
-            exit;
+    if ($_POST['username'] == "admin" && $_POST['password'] == "admin") {
+
+        $_SESSION['username'] = "admin";
+        $_SESSION['password'] = "admin";
+        header('location:admin_dashboard.php');
+        exit;
     }
 
+    if ($_POST['username'] == "journaliste" && $_POST['password'] == "journaliste") {
+
+        $_SESSION['username'] = "journaliste";
+        $_SESSION['password'] = "journaliste";
+        header('location:journaliste_view.php');
+        exit;
+    }
 }
 
 ?>
 
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Connexion - Apex Management</title>
     <link rel="stylesheet" href="../style.css">
     <style>
-        
+
     </style>
 </head>
+
 <body>
     <div class="login-container">
         <div class="login-box">
@@ -55,14 +56,13 @@ if (isset($_POST['submit'])){
                     <label for="username">Nom d'utilisateur</label>
                     <div class="input-wrapper">
                         <span class="input-icon">👤</span>
-                        <input 
-                            type="text" 
+                        <input
+                            type="text"
                             id="username"
-                            name="username" 
+                            name="username"
                             class="login-input"
                             placeholder="Entrez votre nom d'utilisateur"
-                            required
-                        >
+                            required>
                     </div>
                 </div>
 
@@ -70,16 +70,15 @@ if (isset($_POST['submit'])){
                     <label for="password">Mot de passe</label>
                     <div class="input-wrapper">
                         <span class="input-icon">🔒</span>
-                        <input 
-                            type="password" 
+                        <input
+                            type="password"
                             id="password"
                             name="password"
                             class="login-input"
                             placeholder="Entrez votre mot de passe"
-                            required
-                        >
+                            required>
                         <button type="button" class="password-toggle" id="togglePassword">
-                            
+
                         </button>
                     </div>
                 </div>
@@ -102,6 +101,7 @@ if (isset($_POST['submit'])){
         </div>
     </div>
 
-   
+
 </body>
+
 </html>

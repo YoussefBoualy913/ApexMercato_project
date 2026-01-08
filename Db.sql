@@ -41,7 +41,7 @@ Equipe_id INT  NOT NULL,
 Salaire int NOT NULL,
 Clause_de_rachat decimal (30) NOT NULL,
 Date_de_fin DATETIME ,
-Date_de_débute DATETIME DEFAULT CURRENT_TIMESTAMP,
+Date_de_débute DATETIME ,
 FOREIGN KEY (Equipe_id) REFERENCES Equipe(id) ON DELETE CASCADE,
 FOREIGN KEY (Personnes_id) REFERENCES Personnes(id) ON DELETE CASCADE
 );
@@ -53,6 +53,7 @@ Equipe_départ_id INT  NOT NULL,
 Equipe_arrivée_id INT  NOT NULL,
 Montant int NOT NULL,
 Statut VARCHAR(30) NOT NULL,
+transfert_code  VARCHAR(40) NOT NULL,
 FOREIGN KEY (Equipe_départ_id) REFERENCES Equipe(id) ON DELETE CASCADE,
 FOREIGN KEY (Equipe_arrivée_id) REFERENCES Equipe(id) ON DELETE CASCADE,
 FOREIGN KEY (Joueur_id) REFERENCES Joueur(id) ON DELETE CASCADE

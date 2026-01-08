@@ -1,26 +1,27 @@
 <?php
-final class FinancialEngine{
+final class FinancialEngine
+{
 
-    private static float $tax;
-    private static float $commissionAgent;
-    private static float $bedget;
+     private static float $tax;
+     private static float $commissionAgent;
+     private static float $bedget;
 
-    public static function calculateTax(float $montant):float {
-         return self::$tax =  $montant * (10 / 100);
-    }
-    public static function commissionAgent(float $montant):float {
-         return self::$commissionAgent =  $montant * (5 / 100);
-    }
+     public static function calculateTax(float $montant): float
+     {
+          return self::$tax =  $montant * (10 / 100);
+     }
+     public static function commissionAgent(float $montant): float
+     {
+          return self::$commissionAgent =  $montant * (5 / 100);
+     }
 
-     public static function newBedgetEquipeDbute(float $bedget,float $montant):float {
-         return self::$bedget = $bedget +( self::calculateTax($montant) + self::commissionAgent($montant));
-    }
-    
-    public static function newBedgetEquipeFin(float $bedget,float $montant):float {
-         return self::$bedget = $bedget -( self::calculateTax($montant) + self::commissionAgent($montant));
-    }
+     public static function newBedgetEquipeDbute(float $bedget, float $montant): float
+     {
+          return self::$bedget = $bedget + (self::calculateTax($montant) + self::commissionAgent($montant));
+     }
 
-
-     
-
+     public static function newBedgetEquipeFin(float $bedget, float $montant): float
+     {
+          return self::$bedget = $bedget - (self::calculateTax($montant) + self::commissionAgent($montant));
+     }
 }

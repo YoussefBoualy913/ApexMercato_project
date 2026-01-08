@@ -47,22 +47,22 @@ class RepositoryTransfert
             $this->BudgetB = $this->getBudget($eB_id);
             $this->ValeurMarchande = $this->getValeurMarchande($J_id);
 
-            
 
-            $newBedgetEquipeDbute = FinancialEngine::newBedgetEquipeDbute($this->getBudget($eA_id),$this->getValeurMarchande($J_id));
+
+            $newBedgetEquipeDbute = FinancialEngine::newBedgetEquipeDbute($this->getBudget($eA_id), $this->getValeurMarchande($J_id));
             $sql1 = " UPDATE `equipe` SET `Budget`= ? WHERE id = ?";
             $stmt = $this->pdo->prepare($sql1);
-            $stmt->execute([$newBedgetEquipeDbute , $eA_id]);
-            
+            $stmt->execute([$newBedgetEquipeDbute, $eA_id]);
+
             $newBedgetEquipeFin = FinancialEngine::newBedgetEquipeFin($this->getBudget($eB_id), $this->getValeurMarchande($J_id));
             $sql3 = " UPDATE `equipe` SET `Budget`=? WHERE id = ?";
             $stmt = $this->pdo->prepare($sql3);
-            $stmt->execute([$newBedgetEquipeFin , $eB_id]);
+            $stmt->execute([$newBedgetEquipeFin, $eB_id]);
 
-            
+
             $sql4 = " UPDATE `joueur` SET `Equipe_id` = ? WHERE id = ?";
             $stmt = $this->pdo->prepare($sql4);
-            $stmt->execute([$eB_id,$J_id]);
+            $stmt->execute([$eB_id, $J_id]);
 
             $sql2 = "INSERT INTO `contrat`( `Personnes_id`, `Equipe_id`, `Salaire`, `Clause_de_rachat`, `Date_de_fin`) 
              VALUES (?,?,?,?,?)";
@@ -78,28 +78,29 @@ class RepositoryTransfert
             $updetedAt = (new DateTime())->format('Y-m-d H:i:s');
             $sql6 = "UPDATE `contrat` SET `Date_de_fin`= ? WHERE Equipe_id = ? and Personnes_id =?";
             $stmt = $this->pdo->prepare($sql6);
-            $stmt->execute([$updetedAt,$eA_id,$J_id]);
-        
+            $stmt->execute([$updetedAt, $eA_id, $J_id]);
+
             if ($this->BudgetB < ($this->ValeurMarchande + FinancialEngine::calculateTax($this->ValeurMarchande) + FinancialEngine::commissionAgent($this->ValeurMarchande))) {
                 $status = "Pending";
             } else {
                 $status = "Completed";
             }
-            
-            $sql5 = "INSERT INTO `transfert`( `Joueur_id`, `Equipe_départ_id`,`Equipe_arrivée_id`, `Montant`, `Statut`) 
-               VALUES (?,?,?,?,?)";
+
+            $sql5 = "INSERT INTO `transfert`( `Joueur_id`, `Equipe_départ_id`,`Equipe_arrivée_id`, `Montant`, `Statut`,`transfert_code`) 
+               VALUES (?,?,?,?,?,?)";
             $stmt = $this->pdo->prepare($sql5);
             $stmt->execute([
                 $transfert->getJoueur_id(),
                 $transfert->getEquipe_départ_id(),
                 $transfert->getEquipe_arrivée_id(),
                 $transfert->getMontante(),
-                $status
+                $status,
+                $transfert->getTransfert_code(),
             ]);
 
             $this->pdo->commit();
         } catch (PDOException $e) {
-            echo "erurr".$e->getMessage();
+            echo "erurr" . $e->getMessage();
             $this->pdo->rollBack();
         }
     }
