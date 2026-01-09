@@ -84,7 +84,7 @@ if (isset($_GET['player_id'])) {
                 </div>
             </div>
 
-            <button type="submit" name="submit" class="btn btn-primary mt-2">✅ Créer le Joueur</button>
+            <button type="submit" name="submit" class="btn btn-primary mt-2" onclick="validationPlayer(event)">✅ Créer le Joueur</button>
         </form>
     </div>
 

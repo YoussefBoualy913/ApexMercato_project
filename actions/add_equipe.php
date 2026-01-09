@@ -18,6 +18,6 @@ if (isset($_POST['submit'])) {
     $eq->setBudget($_POST['Budget']);
     $eq->setManager($_POST['Manager']);
 
-    $repoequipe->save($eq);
-    header('location:../views/views_equipe.php');
+    // $repoequipe->save($eq);
+    // header('location:../views/views_equipe.php');
 }

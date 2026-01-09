@@ -20,7 +20,7 @@ if (isset($_GET['equipe_id'])) {
     </div>
 
     <div class="form-container fade-in">
-        <form id="teamForm" action="<?php if (isset($_GET['equipe_id'])) {
+        <form id="EquipeForm" action="<?php if (isset($_GET['equipe_id'])) {
                                         $id = $_GET['equipe_id'];
                                         echo "../actions/updete_equipe.php? equipe_id=$id";
                                     } else {
@@ -51,7 +51,7 @@ if (isset($_GET['equipe_id'])) {
 
             </div>
 
-            <button type="submit" name="submit" class="btn btn-primary mt-2">✅ Créer l'Équipe</button>
+            <button type="submit"  name="submit" onclick="validationEquipe(event)" class="btn btn-primary mt-2">✅ Créer l'Équipe</button>
         </form>
     </div>
 

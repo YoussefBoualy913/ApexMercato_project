@@ -7,8 +7,8 @@ if ($_SESSION['username'] !== "admin" && $_SESSION['password'] !== "admin") {
 }
 require_once('../header.php');
 require_once('../Repository/Repositorypagenation.php');
-
 if (isset($_GET['page'])){
+    if ($_GET['page'] < 1){$_GET['page'] = 1;}
     $prevoicetpage = $_GET['page']-1;
     $nextpage = $_GET['page']+1;
     $curantepage = $_GET['page'];

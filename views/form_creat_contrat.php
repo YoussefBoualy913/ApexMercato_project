@@ -44,7 +44,7 @@ $Equipe_id = $_GET['Equipe_id'];
                 </div>
             </div>
 
-            <button type="submit" name="submit" class="btn btn-primary mt-2">✅ Générer le Contrat</button>
+            <button type="submit" name="submit" class="btn btn-primary mt-2" onclick="validationContrat(event)">✅ Générer le Contrat</button>
         </form>
     </div>
 
