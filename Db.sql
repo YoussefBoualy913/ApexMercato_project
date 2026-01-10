@@ -23,7 +23,7 @@ Rôle VARCHAR(30) NOT NULL,
 Valeur_Marchande INT  NOT NULL, 
 FOREIGN KEY (Equipe_id) REFERENCES Equipe(id) ON DELETE CASCADE,
 FOREIGN KEY (id) REFERENCES Personnes(id) ON DELETE CASCADE
-)
+);
 
 CREATE TABLE Coach  (
 id INT PRIMARY KEY,
@@ -39,6 +39,7 @@ id INT PRIMARY KEY AUTO_INCREMENT,
 Personnes_id INT  NOT NULL,
 Equipe_id INT  NOT NULL,
 Salaire int NOT NULL,
+Type ENUM ('Joueur','coatch'),
 Clause_de_rachat decimal (30) NOT NULL,
 Date_de_fin DATETIME ,
 Date_de_débute DATETIME ,

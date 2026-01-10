@@ -6,8 +6,13 @@ if ($_SESSION['username'] !== "admin" && $_SESSION['password'] !== "admin") {
     header('location:login.php');
     exit;
 }
-
 require_once('../header.php');
+require_once('../Repository/RepositoryContract.php');
+
+
+$repocontrat = new  RepositoryContract();
+$result = $repocontrat->getAll();
+var_dump($result);
 ?>
 
 <div class="container">
@@ -68,42 +73,20 @@ require_once('../header.php');
                 </tr>
             </thead>
             <tbody>
+               <?php foreach($result as $itme){ ?>
                 <tr>
-                    <td style="color: #64748b;">#CNT-2025-089</td>
-                    <td>🎮 Cinkrof</td>
-                    <td><span class="card-badge badge-player">Joueur</span></td>
-                    <td>Karmine Corp</td>
-                    <td style="color: var(--success);">€180K/an</td>
-                    <td style="color: var(--accent);">€850K</td>
-                    <td>31/12/2027</td>
+                    <td style="color: #64748b;"><?=$itme['id'];  ?></td>
+                    <td><?=$itme['Nom'];  ?></td>
+                    <td><span class="card-badge <?php if ($itme['Type'] == "coatch"){echo "badge-coach" ;}else{ echo " badge-player";}  ?>"><?=$itme['Type'];  ?></span></td>
+                    <td><?=$itme['nomequipe'];  ?></td>
+                    <td style="color: var(--success);">€<?=$itme['Salaire'];  ?>K/an</td>
+                    <td style="color: var(--accent);">€<?=$itme['Clause_de_rachat']; ?>K</td>
+                    <td><?=$itme['Date_de_fin'];  ?></td>
                     <td>
                         <button class="btn btn-secondary" style="padding: 0.4rem 0.8rem; font-size: 0.85rem;">✏️ Modifier</button>
                     </td>
                 </tr>
-                <tr>
-                    <td style="color: #64748b;">#CNT-2025-067</td>
-                    <td>🎮 Rekkles</td>
-                    <td><span class="card-badge badge-player">Joueur</span></td>
-                    <td>G2 Esports</td>
-                    <td style="color: var(--success);">€250K/an</td>
-                    <td style="color: var(--accent);">€1.2M</td>
-                    <td>30/06/2026</td>
-                    <td>
-                        <button class="btn btn-secondary" style="padding: 0.4rem 0.8rem; font-size: 0.85rem;">✏️ Modifier</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td style="color: #64748b;">#CNT-2025-043</td>
-                    <td>🎯 Dylan Falco</td>
-                    <td><span class="card-badge badge-coach">Coach</span></td>
-                    <td>Team Vitality</td>
-                    <td style="color: var(--success);">€95K/an</td>
-                    <td style="color: var(--accent);">-</td>
-                    <td>31/12/2026</td>
-                    <td>
-                        <button class="btn btn-secondary" style="padding: 0.4rem 0.8rem; font-size: 0.85rem;">✏️ Modifier</button>
-                    </td>
-                </tr>
+                <?php } ?>
             </tbody>
         </table>
     </div>

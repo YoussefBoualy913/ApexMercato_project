@@ -30,6 +30,7 @@ if (isset($_POST['submit'])) {
         $contract->setPersonnes_id(($_GET['Personne_id']));
         $contract->setEquipe_id($_GET['Equipe_id']);
         $contract->setsalaire($_POST['Salaire']);
+        $contract->setType($_POST['Type']);
         $contract->setClause_de_rachat($_POST['Clause_de_rachat']);
         $contract->setDate_de_fin($_POST['Date_de_fin']);
 

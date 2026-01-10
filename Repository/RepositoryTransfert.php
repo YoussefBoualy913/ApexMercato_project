@@ -64,15 +64,16 @@ class RepositoryTransfert
             $stmt = $this->pdo->prepare($sql4);
             $stmt->execute([$eB_id, $J_id]);
 
-            $sql2 = "INSERT INTO `contrat`( `Personnes_id`, `Equipe_id`, `Salaire`, `Clause_de_rachat`, `Date_de_fin`) 
-             VALUES (?,?,?,?,?)";
+            $sql2 = "INSERT INTO `contrat`( `Personnes_id`, `Equipe_id`, `Salaire`, `Clause_de_rachat`, `Date_de_fin`,`Type`) 
+             VALUES (?,?,?,?,?,?)";
             $stmt = $this->pdo->prepare($sql2);
             $stmt->execute([
                 $Contrat->getPersonnes_id(),
                 $Contrat->getEquipe_id(),
                 $Contrat->getSalaire(),
                 $Contrat->getClause_de_rachat(),
-                $Contrat->getDate_de_fin()
+                $Contrat->getDate_de_fin(),
+                $Contrat->getType()
             ]);
 
             $updetedAt = (new DateTime())->format('Y-m-d H:i:s');

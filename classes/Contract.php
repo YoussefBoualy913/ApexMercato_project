@@ -9,6 +9,7 @@ class Contract
     private int $Equipe_id;
     private int $salaire;
     private  float $Clause_de_rachat;
+    private  string $Type;
     private DateTime $Date_de_fin;
     private readonly DateTime $Date_de_création;
 
@@ -55,6 +56,15 @@ class Contract
     public function setSalaire($salaire)
     {
         $this->salaire = $salaire;
+    }
+    public function getType()
+    {
+        return  $this->Type;
+    }
+
+    public function setType($Type)
+    {
+        $this->Type = $Type;
     }
 
     public function getClause_de_rachat()

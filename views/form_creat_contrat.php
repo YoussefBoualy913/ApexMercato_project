@@ -37,6 +37,13 @@ $Equipe_id = $_GET['Equipe_id'];
                     <input type="number" name="Clause_de_rachat" id="contractClause" placeholder="Ex: 500000" required>
                 </div>
 
+                  <div class="form-group">
+                    <label for="playerType">Type *</label>
+                    <select id="playerType" name="type" required>
+                        <option value="Joueur">Joueur</option>
+                        <option value="coatch">coatch</option>
+                    </select>
+                </div>
 
                 <div class="form-group">
                     <label for="contractEnd">Date de Fin *</label>
