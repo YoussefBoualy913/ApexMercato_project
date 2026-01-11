@@ -15,6 +15,24 @@ class RepositoryTransfert
         $this->pdo = Dtabese::getInstnce()->getConnexion();
     }
 
+    public function getAll(): array
+    {
+        $sql = "SELECT transfert.id,
+                personnes.Nom,
+                eqd.Nom as equipedeparte,
+                eqa.Nom as equipearrivee,
+                transfert.Montant,
+                transfert.Statut,
+                transfert.transfert_code
+                FROM transfert
+                JOIN personnes on transfert.Joueur_id = personnes.id
+                JOIN equipe eqd on transfert.Equipe_départ_id = eqd.id 
+                JOIN equipe eqa on transfert.Equipe_arrivée_id = eqa.id;";
+
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 
     public function getValeurMarchande(int $id): int
     {

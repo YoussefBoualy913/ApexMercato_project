@@ -14,7 +14,7 @@ if (isset($_POST['submit'])) {
 
         $_SESSION['username'] = "journaliste";
         $_SESSION['password'] = "journaliste";
-        header('location:journaliste_view.php');
+        header('location:journaliste_views.php');
         exit;
     }
 }

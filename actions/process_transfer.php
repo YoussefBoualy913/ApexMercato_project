@@ -16,6 +16,7 @@ $repotransfert = new RepositoryTransfert();
 $contrat->setPersonnes_id($Player_id);
 $contrat->setEquipe_id($equipe_fin_id);
 $contrat->setSalaire($_POST['Salaire']);
+$contrat->setType($_POST['type']);
 $contrat->setClause_de_rachat($_POST['Clause_de_rachat']);
 $contrat->setDate_de_fin($_POST['Date_de_fin']);
 

@@ -7,7 +7,7 @@ if ($_SESSION['username'] !== "admin" && $_SESSION['password'] !== "admin") {
 }
 
 require_once('../header.php');
-require_once('../classes/RepositoryCoach.php');
+require_once('../Repository/RepositoryCoach.php');
 
 
 $repoCoach = new  RepositoryCoach();

@@ -50,7 +50,7 @@ $result = $repoequipe->getSauf($equipe_id);
                         <td><span class='card-badge badge-player'>" . $equpe['Budget'] . "</span></td>
                         <td>" . $equpe['Manager'] . "</td>
                         <td>
-                            <a href='views_trensfert.php? player_id=$player_id & equipe_debut_id=$equipe_debut_id & equipe_fin_id=$id' class='btn btn-secondary' style='padding: 0.4rem 0.8rem; font-size: 0.85rem;'>choisir</a>
+                            <a href='views_trensfert_execute.php? player_id=$player_id & equipe_debut_id=$equipe_debut_id & equipe_fin_id=$id' class='btn btn-secondary' style='padding: 0.4rem 0.8rem; font-size: 0.85rem;'>choisir</a>
                           
                         </td>
                     </tr>";

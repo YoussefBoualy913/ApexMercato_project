@@ -12,7 +12,6 @@ require_once('../Repository/RepositoryContract.php');
 
 $repocontrat = new  RepositoryContract();
 $result = $repocontrat->getAll();
-var_dump($result);
 ?>
 
 <div class="container">

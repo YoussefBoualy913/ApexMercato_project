@@ -1,5 +1,6 @@
 <?php
 require_once('RepositoryInterface.php');
+require_once('../Dtabese.php');
 
 class RepositoryCoach implements RepositoryInterface
 {
