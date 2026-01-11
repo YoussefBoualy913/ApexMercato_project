@@ -56,21 +56,12 @@
         </div>
 
         <div class="section-header mt-2">
-            <h2>🔍 Filtres Dynamiques</h2>
+            <h2>Filtres Dynamiques</h2>
         </div>
 
-        <div class="filters fade-in">
-            <button class="filter-btn active" data-filter="all">Tous</button>
-            <button class="filter-btn" data-filter="high">Valeur > €800K</button>
-            <button class="filter-btn" data-filter="mid">€300K - €800K</button>
-            <button class="filter-btn" data-filter="low">< €300K</button>
-            <button class="filter-btn" data-filter="top">Top Laners</button>
-            <button class="filter-btn" data-filter="jungle">Junglers</button>
-            <button class="filter-btn" data-filter="mid">Mid Laners</button>
-        </div>
-
-        <div class="section-header">
-            <h2>💰 Analyse des Joueurs</h2>
+        <div class="form-group">
+            
+                    <input type="text" name="filtre_input" id="filtre_input" placeholder="🔍 Entrez nom de joueur" required>
         </div>
 
         <div class="table-container fade-in">
@@ -84,10 +75,9 @@
                         <th>Valeur Marchande</th>
                         <th>Salaire Annuel</th>
                         <th>Clause de Rachat</th>
-                        <th>Coût Total Annuel</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="listplayersTable">
                     <tr data-value="850000" data-role="jungle">
                         <td style="font-weight: 600;">🎮 Cinkrof</td>
                         <td>Jungle</td>
@@ -96,7 +86,6 @@
                         <td style="color: var(--accent);">€850K</td>
                         <td style="color: var(--success);">€180K/an</td>
                         <td style="color: var(--warning);">€850K</td>
-                        <td><strong style="color: var(--primary);">€198K</strong></td>
                     </tr>
                     <tr data-value="1200000" data-role="adc">
                         <td style="font-weight: 600;">🎮 Rekkles</td>
@@ -425,7 +414,49 @@
     </div>
 
     <script>
-       
+    const filtre_input = document.querySelector('#filtre_input');
+    const listplayersTable = document.querySelector('#listplayersTable');
+    
+    filtre_input.addEventListener('input',()=>{
+    const query = filtre_input.value;
+   
+
+
+    async function getJoueurs(query) {
+            
+             try {
+                
+                    const response = await fetch('./Filtre_players.php? query='+encodeURIComponent(query));
+                    const data = await response.json();
+                    return data;
+                   
+                   
+             } catch (error) {
+              console.error(error);
+             }
+        }
+    
+        async function run(){
+         const joueur = await  getJoueurs(query);
+         console.log(joueur);
+         
+        listplayersTable.innerHTML ='';
+        joueur.forEach(element => {
+             listplayersTable.innerHTML+=`
+                <tr data-value="850000" data-role="jungle">
+                        <td style="font-weight: 600;">${element.Nomjoueur}</td>
+                        <td>${element.Rôle}</td>
+                        <td>${element.Nomequipe}</td>
+                        <td>${element.Nationalité}</td>
+                        <td style="color: var(--accent);">€${element.Valeur_Marchande}K</td>
+                        <td style="color: var(--success);">€K${element.Salaire}/an</td>
+                        <td style="color: var(--warning);">€${element.Clause_de_rachat}K</td>
+                    </tr>
+             `
+        });
+    }
+     run();
+    })
     </script>
 </body>
 </html>
