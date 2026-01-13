@@ -11,10 +11,10 @@
         <div class="nav-container">
             <a href="index.html" class="logo">⚡ APEX Management</a>
             <ul class="nav-links">
-                <li><a href="index.html">Accueil</a></li>
-                <li><a href="admin.html">Admin</a></li>
-                <li><a href="journaliste.html" class="active">Journaliste</a></li>
-                <li><a href="visiteur.html">Public</a></li>
+              
+                <li><a href="#">Admin</a></li>
+                <li><a href="#" class="active">Journaliste</a></li>
+                <li><a href="#">Public</a></li>
             </ul>
         </div>
     </nav>
@@ -78,65 +78,7 @@
                     </tr>
                 </thead>
                 <tbody id="listplayersTable">
-                    <tr data-value="850000" data-role="jungle">
-                        <td style="font-weight: 600;">🎮 Cinkrof</td>
-                        <td>Jungle</td>
-                        <td>Karmine Corp</td>
-                        <td>🇫🇷 France</td>
-                        <td style="color: var(--accent);">€850K</td>
-                        <td style="color: var(--success);">€180K/an</td>
-                        <td style="color: var(--warning);">€850K</td>
-                    </tr>
-                    <tr data-value="1200000" data-role="adc">
-                        <td style="font-weight: 600;">🎮 Rekkles</td>
-                        <td>ADC</td>
-                        <td>G2 Esports</td>
-                        <td>🇸🇪 Suède</td>
-                        <td style="color: var(--accent);">€1.2M</td>
-                        <td style="color: var(--success);">€250K/an</td>
-                        <td style="color: var(--warning);">€1.2M</td>
-                        <td><strong style="color: var(--primary);">€275K</strong></td>
-                    </tr>
-                    <tr data-value="950000" data-role="mid">
-                        <td style="font-weight: 600;">🎮 Caps</td>
-                        <td>Mid</td>
-                        <td>Team Vitality</td>
-                        <td>🇩🇰 Danemark</td>
-                        <td style="color: var(--accent);">€950K</td>
-                        <td style="color: var(--success);">€220K/an</td>
-                        <td style="color: var(--warning);">€950K</td>
-                        <td><strong style="color: var(--primary);">€242K</strong></td>
-                    </tr>
-                    <tr data-value="720000" data-role="top">
-                        <td style="font-weight: 600;">🎮 Cabochard</td>
-                        <td>Top</td>
-                        <td>BDS</td>
-                        <td>🇫🇷 France</td>
-                        <td style="color: var(--accent);">€720K</td>
-                        <td style="color: var(--success);">€160K/an</td>
-                        <td style="color: var(--warning);">€720K</td>
-                        <td><strong style="color: var(--primary);">€176K</strong></td>
-                    </tr>
-                    <tr data-value="420000" data-role="support">
-                        <td style="font-weight: 600;">🎮 Targamas</td>
-                        <td>Support</td>
-                        <td>Team Vitality</td>
-                        <td>🇫🇷 France</td>
-                        <td style="color: var(--accent);">€420K</td>
-                        <td style="color: var(--success);">€95K/an</td>
-                        <td style="color: var(--warning);">€420K</td>
-                        <td><strong style="color: var(--primary);">€104.5K</strong></td>
-                    </tr>
-                    <tr data-value="580000" data-role="jungle">
-                        <td style="font-weight: 600;">🎮 Elyoya</td>
-                        <td>Jungle</td>
-                        <td>MAD Lions</td>
-                        <td>🇪🇸 Espagne</td>
-                        <td style="color: var(--accent);">€580K</td>
-                        <td style="color: var(--success);">€135K/an</td>
-                        <td style="color: var(--warning);">€580K</td>
-                        <td><strong style="color: var(--primary);">€148.5K</strong></td>
-                    </tr>
+                   
                 </tbody>
             </table>
         </div>

@@ -1,6 +1,6 @@
 <?php
 
-require_once('../classes/RepositoryPlayer.php');
+require_once('../Repository/RepositoryPlayer.php');
 
 
 $repoplayer = new  RepositoryPlayer();

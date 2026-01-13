@@ -16,7 +16,7 @@ $sql = "select personnes.Nom as Nomjoueur,
         JOIN joueur on personnes.id= joueur.id
         JOIN equipe on equipe.id = joueur.Equipe_id
         JOIN contrat on joueur.id = contrat.Personnes_id
-        where personnes.Nom  LIKE ?;";
+        where personnes.Nom  LIKE ? and  contrat.Date_de_fin > NOW();";
 $stmt = $pdo ->prepare($sql);
 $stmt ->execute(['%'.$query.'%']);
 

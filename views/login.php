@@ -96,7 +96,7 @@ if (isset($_POST['submit'])) {
                 </button>
             </form>
 
-            <div class="divider"> <a href="#" class="forgot-password">Continuer sans connexion</a></div>
+            <div class="divider"> <a href="./visiteur.php" class="forgot-password">Continuer sans connexion</a></div>
 
         </div>
     </div>

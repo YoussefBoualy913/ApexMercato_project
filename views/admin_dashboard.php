@@ -89,8 +89,8 @@ $result = $repocontrat->getAll();
             </tbody>
         </table>
     </div>
+    <a href="../actions/logout.php?" class="btn btn-primary btn btn-danger mt-2">Se deconnecté</a>
 </div>
-
 <?php
 require_once('../footer.php');
 ?>

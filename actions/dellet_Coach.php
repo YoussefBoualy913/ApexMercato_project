@@ -1,6 +1,6 @@
 <?php
 
-require_once('../classes/RepositoryCoach.php');
+require_once('../Repository/RepositoryCoach.php');
 $repocoach = new  RepositoryCoach();
 $id = $_GET['Coach_id'];
 $repocoach->delete($id);

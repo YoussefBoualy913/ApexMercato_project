@@ -24,7 +24,9 @@ class RepositoryContract implements RepositoryInterface
                 contrat.Date_de_fin
                 FROM contrat
                 JOIN personnes on personnes.id = contrat.Personnes_id
-                JOIN equipe on contrat.Equipe_id = equipe.id;";
+                JOIN equipe on contrat.Equipe_id = equipe.id
+                WHERE contrat.Date_de_fin > NOW();
+                ;";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);

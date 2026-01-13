@@ -2,7 +2,7 @@
 if (isset($_POST['Pseudo'])) {
 
     require_once('../classes/Player.php');
-    require_once('../classes/RepositoryPlayer.php');
+    require_once('../Repository/RepositoryPlayer.php');
 
     $player = new  Player();
     $repoplayer = new  RepositoryPlayer();
